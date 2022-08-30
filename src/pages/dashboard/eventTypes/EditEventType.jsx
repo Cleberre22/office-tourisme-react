@@ -7,60 +7,42 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../../../components/Menu";
 
-const EditArticle = () => {
+const EditEventType = () => {
 
-  const { article } = useParams();
+  const { eventType } = useParams();
   const navigate = useNavigate();
 
-  const [titleArticle, setTitleArticle] = useState("");
-  const [contentArticle, setContentArticle] = useState("");
-  const [image, setImage] = useState(null);
-  const [user_id, setUser_id] = useState(1);
+  const [nameEventType, setNameEventType] = useState("");
   const [validationError, setValidationError] = useState({});
 
   useEffect(() => {
-    getArticle();
+    getEventType();
   }, []);
 
   // GET - Récupère les valeurs de la fiche avec l'API
-  const getArticle = async () => {
+  const getEventType = async () => {
     await axios
-      .get(`http://localhost:8000/api/articles/${article}`)
+      .get(`http://localhost:8000/api/event_types/${eventType}`)
       .then((res) => {
-        console.log(res.data);
-        setTitleArticle(res.data.titleArticle);
-        setContentArticle(res.data.contentArticle);
+        console.log(res.data.data);
+        setNameEventType(res.data.nameEventType);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-
-
-  
-
-  const changeHandler = (event) => {
-    setImage(event.target.files[0]);
-  };
-
   //Fonction d'ajout de club
-  const updateArticle = async (e) => {
+  const updateEventType = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
     formData.append("_method", "PATCH");
-    formData.append("titleArticle", titleArticle);
-    formData.append("contentArticle", contentArticle);
-    formData.append("user_id", user_id);
-    formData.append("image", image);
-    if (image !== null) {
-      formData.append("image", image);
-    }
+    formData.append("nameEventType", nameEventType);
 
     await axios
-      .post(`http://localhost:8000/api/articles/${article}`, formData)
-      .then(navigate("/dashboard/articles"))
+      .post(`http://localhost:8000/api/event_types/${eventType}`, formData)
+      .then(navigate("/dashboard/eventTypes"))
       .catch(({ response }) => {
         if (response.status === 422) {
           setValidationError(response.data.errors);
@@ -76,7 +58,7 @@ const EditArticle = () => {
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title">Modifier un article</h4>
+                <h4 className="card-title">Modifier le type d'évènement</h4>
                 <hr />
                 <div className="form-wrapper">
                   {Object.keys(validationError).length > 0 && (
@@ -94,48 +76,21 @@ const EditArticle = () => {
                       </div>
                     </div>
                   )}
-
-                  <Form onSubmit={updateArticle}>
-
+                  <Form onSubmit={updateEventType}>
                     <Row>
                       <Col>
-                        <Form.Group controlId="Title">
-                          <Form.Label>Titre de l'article</Form.Label>
+                        <Form.Group controlId="Name">
+                          <Form.Label>Nom du type d'évènement</Form.Label>
                           <Form.Control
                             type="text"
-                            value={titleArticle}
+                            value={nameEventType}
                             onChange={(event) => {
-                              setTitleArticle(event.target.value);
+                              setNameEventType(event.target.value);
                             }}
                           />
                         </Form.Group>
                       </Col>
                     </Row>
-
-                    <Row>
-                      <Col>
-                        <Form.Group controlId="Content">
-                          <Form.Label>Contenu de l'article</Form.Label>
-                          <Form.Control
-                            type="text"
-                            value={contentArticle}
-                            onChange={(event) => {
-                              setContentArticle(event.target.value);
-                            }}
-                          />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-
-                    <Row>
-                      <Col>
-                        <Form.Group controlId="Image" className="mb-3">
-                          <Form.Label>Image</Form.Label>
-                          <Form.Control type="file" onChange={changeHandler} />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-
                     <Button
                       variant="primary"
                       className="mt-2"
@@ -157,4 +112,4 @@ const EditArticle = () => {
 
 };
 
-export default EditArticle;
+export default EditEventType;

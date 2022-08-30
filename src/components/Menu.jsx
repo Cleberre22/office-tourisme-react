@@ -35,7 +35,7 @@ const Menu = () => {
                   Créer un nouveau type de lieu
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/dashboard/placeTypes">
-                  Liste des type de lieu
+                  Liste des types de lieu
                 </NavDropdown.Item>
               </NavDropdown>
 
@@ -45,6 +45,33 @@ const Menu = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/dashboard/places">
                   Liste des lieux
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              <NavDropdown title="Type d'évènement" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="/dashboard/eventTypes/add">
+                  Créer un nouveau type d'évènement
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/dashboard/eventTypes">
+                  Liste des types d'évènement
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              <NavDropdown title="Evènement" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="/dashboard/events/add">
+                  Créer un nouvel évènement
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/dashboard/events">
+                  Liste des évènements
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              <NavDropdown title="Connexion" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="/register">
+                  S'inscrire
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/login">
+                  Se connecter
                 </NavDropdown.Item>
               </NavDropdown>
               

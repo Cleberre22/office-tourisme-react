@@ -7,55 +7,80 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../../../components/Menu";
 
-const EditArticle = () => {
+const EditPlace = () => {
 
-  const { article } = useParams();
+  const { place } = useParams();
+ 
   const navigate = useNavigate();
 
-  const [titleArticle, setTitleArticle] = useState("");
-  const [contentArticle, setContentArticle] = useState("");
-  const [image, setImage] = useState(null);
-  const [user_id, setUser_id] = useState(1);
+  const [namePlace, setNamePlace] = useState("");
+  const [descriptionPlace, setDescriptionPlace] = useState("");
+  const [imagePlace, setImagePlace] = useState(null);
+  const [adressPlace, setAdressPlace] = useState("");
+  const [latitudePlace, setLatitudePlace] = useState("");
+  const [longitudePlace, setLongitudePlace] = useState("");
+  const [place_types_id, setPlace_types_id] = useState("");
+  const [placeTypes, setPlaceTypes] = useState([]);
   const [validationError, setValidationError] = useState({});
 
   useEffect(() => {
-    getArticle();
+    getPlaceTypes();
+    getPlace();
   }, []);
 
-  // GET - Récupère les valeurs de la fiche avec l'API
-  const getArticle = async () => {
-    await axios
-      .get(`http://localhost:8000/api/articles/${article}`)
-      .then((res) => {
-        console.log(res.data);
-        setTitleArticle(res.data.titleArticle);
-        setContentArticle(res.data.contentArticle);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  //Méthode pour récupérer les clubs
+  const getPlaceTypes = async () => {
+    await axios.get("http://localhost:8000/api/place_types").then((res) => {
+      setPlaceTypes(res.data);
+    });
   };
+  
+  const handleChange = (event) => {
+    setPlace_types_id(event.target.value);
+  };
+
+ // GET - Récupère les valeurs de la fiche avec l'API
+ const getPlace = async () => {
+  await axios
+    .get(`http://localhost:8000/api/places/${place}`)
+    .then((res) => {
+      console.log(res.data);
+      setNamePlace(res.data.namePlace);
+      setDescriptionPlace(res.data.descriptionPlace);
+      setAdressPlace(res.data.adressPlace);
+      setLatitudePlace(res.data.latitudePlace);
+      setLongitudePlace(res.data.longitudePlace);
+      setImagePlace(res.data.imagePlace);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
   const changeHandler = (event) => {
-    setImage(event.target.files[0]);
+    setImagePlace(event.target.files[0]);
   };
 
   //Fonction d'ajout de club
-  const updateArticle = async (e) => {
+  const updatePlace = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
     formData.append("_method", "PATCH");
-    formData.append("titleArticle", titleArticle);
-    formData.append("contentArticle", contentArticle);
-    formData.append("user_id", user_id);
-    formData.append("image", image);
-    if (image !== null) {
-      formData.append("image", image);
+    formData.append("namePlace", namePlace);
+    formData.append("descriptionPlace", descriptionPlace);
+    formData.append("adressPlace", adressPlace);
+    formData.append("latitudePlace", latitudePlace);
+    formData.append("longitudePlace", longitudePlace);
+    formData.append("place_types_id", place_types_id);
+    formData.append("imagePlace", imagePlace);
+    if (imagePlace !== null) {
+      formData.append("imagePlace", imagePlace);
     }
 
     await axios
-      .post(`http://localhost:8000/api/articles/${article}`, formData)
-      .then(navigate("/dashboard/articles"))
+      .post(`http://localhost:8000/api/places/${place}`, formData)
+      .then(navigate("/dashboard/places"))
       .catch(({ response }) => {
         if (response.status === 422) {
           setValidationError(response.data.errors);
@@ -71,7 +96,7 @@ const EditArticle = () => {
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title">Modifier un article</h4>
+                <h4 className="card-title">Modifier un lieu</h4>
                 <hr />
                 <div className="form-wrapper">
                   {Object.keys(validationError).length > 0 && (
@@ -89,43 +114,113 @@ const EditArticle = () => {
                       </div>
                     </div>
                   )}
-                  <Form onSubmit={updateArticle}>
+
+                  <Form onSubmit={updatePlace}>
+
+                  <Row>
+                      <Col>
+                        <Form.Group controlId="placeType">
+                          <Form.Label>Type de lieu</Form.Label>
+                          <Form.Select
+                            aria-label="Default select example"
+                            onChange={handleChange}
+                          >
+                            <option>Choisissez un type de lieu</option>
+                            {placeTypes.map((placeType) => (
+                              <option key={placeType.id} value={placeType.id}>
+                                {placeType.namePlaceType}
+                              </option>
+                            ))}
+                          </Form.Select>
+                        </Form.Group>
+                      </Col>
+                    </Row>
+
                     <Row>
                       <Col>
-                        <Form.Group controlId="Title">
-                          <Form.Label>Titre de l'article</Form.Label>
+                        <Form.Group controlId="Name">
+                          <Form.Label>Nom du lieu</Form.Label>
                           <Form.Control
                             type="text"
-                            value={titleArticle}
+                            value={namePlace}
                             onChange={(event) => {
-                              setTitleArticle(event.target.value);
+                              setNamePlace(event.target.value);
                             }}
                           />
                         </Form.Group>
                       </Col>
                     </Row>
+
                     <Row>
                       <Col>
-                        <Form.Group controlId="Content">
-                          <Form.Label>Contenu de l'article</Form.Label>
+                        <Form.Group controlId="Description">
+                          <Form.Label>Description du lieu</Form.Label>
                           <Form.Control
                             type="text"
-                            value={contentArticle}
+                            value={descriptionPlace}
                             onChange={(event) => {
-                              setContentArticle(event.target.value);
+                              setDescriptionPlace(event.target.value);
                             }}
                           />
                         </Form.Group>
                       </Col>
                     </Row>
+
+
                     <Row>
                       <Col>
-                        <Form.Group controlId="Image" className="mb-3">
+                        <Form.Group controlId="AdressPlace">
+                          <Form.Label>Adresse du lieu</Form.Label>
+                          <Form.Control
+                            type="text"
+                            value={adressPlace}
+                            onChange={(event) => {
+                              setAdressPlace(event.target.value);
+                            }}
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+
+                    <Row>
+                      <Col>
+                        <Form.Group controlId="Latitude">
+                          <Form.Label>Latitude du lieu</Form.Label>
+                          <Form.Control
+                            type="number"
+                            value={latitudePlace}
+                            onChange={(event) => {
+                              setLatitudePlace(event.target.value);
+                            }}
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+
+                    <Row>
+                      <Col>
+                        <Form.Group controlId="Longitude">
+                          <Form.Label>Longitude du lieu</Form.Label>
+                          <Form.Control
+                            type="number"
+                            value={longitudePlace}
+                            onChange={(event) => {
+                              setLongitudePlace(event.target.value);
+                            }}
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+
+                    <Row>
+                      <Col>
+                        <Form.Group controlId="ImagePlace" className="mb-3">
                           <Form.Label>Image</Form.Label>
                           <Form.Control type="file" onChange={changeHandler} />
                         </Form.Group>
                       </Col>
                     </Row>
+
                     <Button
                       variant="primary"
                       className="mt-2"
@@ -133,7 +228,7 @@ const EditArticle = () => {
                       block="block"
                       type="submit"
                     >
-                      Modifier
+                      Modifier le lieu
                     </Button>
                   </Form>
                 </div>
@@ -147,4 +242,4 @@ const EditArticle = () => {
 
 };
 
-export default EditArticle;
+export default EditPlace;

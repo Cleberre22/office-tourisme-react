@@ -1,6 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+
 import Index from "./pages/dashboard/Index";
 
 import Articles from "./pages/dashboard/articles/Articles";
@@ -15,7 +19,13 @@ import Places from "./pages/dashboard/places/Places";
 import AddPlace from "./pages/dashboard/places/AddPlace";
 import EditPlace from "./pages/dashboard/places/EditPlace";
 
-import Home from "./pages/Home";
+import EventTypes from "./pages/dashboard/eventTypes/EventTypes";
+import AddEventType from "./pages/dashboard/eventTypes/AddEventType";
+import EditEventType from "./pages/dashboard/eventTypes/EditEventType";
+
+import Events from "./pages/dashboard/events/Events";
+import AddEvent from "./pages/dashboard/events/AddEvent";
+import EditEvent from "./pages/dashboard/events/EditEvent";
 
 function App() {
 
@@ -24,6 +34,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/dashboard/index" element={<Index />} />
 
@@ -38,6 +51,14 @@ function App() {
         <Route path="/dashboard/places" element={<Places />} />
         <Route path="/dashboard/places/add" element={<AddPlace />} />
         <Route path="/dashboard/places/edit/:place" element={<EditPlace />} />
+
+        <Route path="/dashboard/eventTypes" element={<EventTypes />} />
+        <Route path="/dashboard/eventTypes/add" element={<AddEventType />} />
+        <Route path="/dashboard/eventTypes/edit/:eventType" element={<EditEventType />} />
+
+        <Route path="/dashboard/events" element={<Events />} />
+        <Route path="/dashboard/events/add" element={<AddEvent />} />
+        <Route path="/dashboard/events/edit/:event" element={<EditEvent />} />
 
         <Route path="*" element={<Home />} />
       </Routes>

@@ -1,66 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-import Menu from "../../../components/Menu";
+import { useNavigate } from "react-router-dom";
+import Menu from "../components/Menu";
 
-const EditArticle = () => {
-
-  const { article } = useParams();
+const Register = () => {
   const navigate = useNavigate();
 
-  const [titleArticle, setTitleArticle] = useState("");
-  const [contentArticle, setContentArticle] = useState("");
-  const [image, setImage] = useState(null);
-  const [user_id, setUser_id] = useState(1);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password_confirmation, setPassword_confirmation] = useState("");
   const [validationError, setValidationError] = useState({});
 
-  useEffect(() => {
-    getArticle();
-  }, []);
-
-  // GET - Récupère les valeurs de la fiche avec l'API
-  const getArticle = async () => {
-    await axios
-      .get(`http://localhost:8000/api/articles/${article}`)
-      .then((res) => {
-        console.log(res.data);
-        setTitleArticle(res.data.titleArticle);
-        setContentArticle(res.data.contentArticle);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-
-
-  
-
-  const changeHandler = (event) => {
-    setImage(event.target.files[0]);
-  };
-
   //Fonction d'ajout de club
-  const updateArticle = async (e) => {
+  const Register = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("_method", "PATCH");
-    formData.append("titleArticle", titleArticle);
-    formData.append("contentArticle", contentArticle);
-    formData.append("user_id", user_id);
-    formData.append("image", image);
-    if (image !== null) {
-      formData.append("image", image);
-    }
+
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("password_confirmation", password_confirmation);
 
     await axios
-      .post(`http://localhost:8000/api/articles/${article}`, formData)
-      .then(navigate("/dashboard/articles"))
+      .post(`http://localhost:8000/api/auth/register`, formData)
+      .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {
           setValidationError(response.data.errors);
@@ -71,12 +40,12 @@ const EditArticle = () => {
   return (
     <div>
       <Menu />
-      <div className="container mt-5">
+      <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title">Modifier un article</h4>
+                <h4 className="card-title text-center">S'inscrire</h4>
                 <hr />
                 <div className="form-wrapper">
                   {Object.keys(validationError).length > 0 && (
@@ -94,18 +63,18 @@ const EditArticle = () => {
                       </div>
                     </div>
                   )}
-
-                  <Form onSubmit={updateArticle}>
+                  <Form onSubmit={Register}>
 
                     <Row>
                       <Col>
-                        <Form.Group controlId="Title">
-                          <Form.Label>Titre de l'article</Form.Label>
+                        <Form.Group controlId="Name">
+                          <Form.Label></Form.Label>
                           <Form.Control
                             type="text"
-                            value={titleArticle}
+                            value={name}
+                            placeholder="Votre nom"
                             onChange={(event) => {
-                              setTitleArticle(event.target.value);
+                              setName(event.target.value);
                             }}
                           />
                         </Form.Group>
@@ -114,13 +83,14 @@ const EditArticle = () => {
 
                     <Row>
                       <Col>
-                        <Form.Group controlId="Content">
-                          <Form.Label>Contenu de l'article</Form.Label>
+                        <Form.Group controlId="Email">
+                          <Form.Label></Form.Label>
                           <Form.Control
-                            type="text"
-                            value={contentArticle}
+                            type="email"
+                            value={email}
+                            placeholder="Votre email"
                             onChange={(event) => {
-                              setContentArticle(event.target.value);
+                              setEmail(event.target.value);
                             }}
                           />
                         </Form.Group>
@@ -129,13 +99,36 @@ const EditArticle = () => {
 
                     <Row>
                       <Col>
-                        <Form.Group controlId="Image" className="mb-3">
-                          <Form.Label>Image</Form.Label>
-                          <Form.Control type="file" onChange={changeHandler} />
+                        <Form.Group controlId="Password">
+                          <Form.Label></Form.Label>
+                          <Form.Control
+                            type="password"
+                            value={password}
+                            placeholder="Mot de passe"
+                            onChange={(event) => {
+                              setPassword(event.target.value);
+                            }}
+                          />
                         </Form.Group>
                       </Col>
                     </Row>
 
+                    <Row>
+                      <Col>
+                        <Form.Group controlId="Password_confirmation">
+                          <Form.Label></Form.Label>
+                          <Form.Control
+                            type="password"
+                            value={password_confirmation}
+                            placeholder="Confirmation mot de passe"
+                            onChange={(event) => {
+                              setPassword_confirmation(event.target.value);
+                            }}
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    
                     <Button
                       variant="primary"
                       className="mt-2"
@@ -143,7 +136,7 @@ const EditArticle = () => {
                       block="block"
                       type="submit"
                     >
-                      Modifier
+                      S'inscrire
                     </Button>
                   </Form>
                 </div>
@@ -154,7 +147,6 @@ const EditArticle = () => {
       </div>
     </div>
   );
-
 };
 
-export default EditArticle;
+export default Register;
