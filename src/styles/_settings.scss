@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "font-1";
+  src: url(../assets/fonts/Oswald-VariableFont_wght.ttf);
+}
+
+
+$color-1: #8C8A93;
+$color-2: salmon;
+$color-3: #282c34;
+$white: rgb(243, 243, 243);
+
+@mixin verticalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  font-family: "JosefinSans-Medium";
+  color: #8C8A93;
+  // @include verticalCenter;
+}
+li {
+  list-style-type: none;
+}
+
+.btn {
+background-color:#8c8a93ce;
+border: #fa140c3b 0.5px solid;
+
+}
+.btn:hover {
+  background-color: #fa140c3b !important;
+  border: #8C8A93 0.5px solid;
+}
+
+

@@ -1,0 +1,149 @@
+@font-face {
+  font-family: "font-1";
+  src: url(../assets/fonts/Oswald-VariableFont_wght.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  font-family: "JosefinSans-Medium";
+  color: #8C8A93;
+}
+
+li {
+  list-style-type: none;
+}
+
+.btn {
+  background-color: rgba(140, 138, 147, 0.8078431373);
+  border: rgba(250, 20, 12, 0.231372549) 0.5px solid;
+}
+
+.btn:hover {
+  background-color: rgba(250, 20, 12, 0.231372549) !important;
+  border: #8C8A93 0.5px solid;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0; /* on le colle en bas */
+  width: 100%;
+  height: 100px; /* Hauteur du pied de page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #fa130c;
+  color: #8C8A93 !important;
+  font-weight: 500;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.register {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  border: 0px;
+  margin: auto;
+}
+.register .form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.form-regist {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  border: 1px rgba(250, 20, 12, 0.231372549) solid;
+}
+.card hr {
+  color: #fa130c;
+}
+.card .form-control {
+  border: 1px rgba(250, 20, 12, 0.231372549) solid;
+}
+
+.navbar {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8C8A93 !important;
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 1px solid #fa130c;
+}
+.navbar .nav-global {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+}
+.navbar .nav-left {
+  display: flex;
+  justify-content: center;
+}
+.navbar .nav-right {
+  display: flex;
+  justify-content: center;
+}
+.navbar .logo {
+  display: flex;
+  justify-content: center;
+  margin-left: 35%;
+  margin-right: 25%;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto;
+  width: 200px;
+  padding: 5px 0;
+}
+.logo img {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+}
+.logo h3 {
+  margin-left: 5px;
+  margin-right: 10px;
+  color: rgba(39, 38, 38, 0.932);
+  font-weight: 600;
+  font-size: 40px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.placeMap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(140, 138, 147, 0.7529411765);
+  height: 600px;
+}
+
+.leaflet-container {
+  width: 50%;
+  height: 50vh;
+}
+
+.leaflet-marker-icon {
+  min-width: 60px;
+  min-height: 60px;
+}/*# sourceMappingURL=index.css.map */

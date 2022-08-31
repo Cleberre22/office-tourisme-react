@@ -1,0 +1,26 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include verticalCenter;
+  margin: 5px auto;
+  width: 200px;
+  
+  padding: 5px 0;
+ 
+  
+
+  img {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+  }
+  h3 {
+    margin-left: 5px;
+    margin-right: 10px;
+    color: rgba(39, 38, 38, 0.932);
+    font-weight: 600;
+    font-size: 40px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  }
+}

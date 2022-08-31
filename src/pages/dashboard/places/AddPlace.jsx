@@ -159,7 +159,7 @@ console.log(placeTypes);
                         <Form.Group controlId="Latitude">
                           <Form.Label>Latitude du lieu</Form.Label>
                           <Form.Control
-                            type="number"
+                            type="number 8,6"
                             value={latitudePlace}
                             onChange={(event) => {
                               setLatitudePlace(event.target.value);
@@ -174,7 +174,7 @@ console.log(placeTypes);
                         <Form.Group controlId="Longitude">
                           <Form.Label>Longitude du lieu</Form.Label>
                           <Form.Control
-                            type="number"
+                            type="number 8,6"
                             value={longitudePlace}
                             onChange={(event) => {
                               setLongitudePlace(event.target.value);

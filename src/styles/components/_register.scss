@@ -1,0 +1,32 @@
+.register {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    border: 0px;
+    margin: auto;
+
+    .form-wrapper {
+        display: flex;
+        justify-content: center;
+
+    }
+}
+
+.form-regist {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    border: 1px #fa140c3b solid;
+    hr {
+        color: #fa130c;
+    }
+
+    .form-control {
+        border: 1px #fa140c3b solid;
+    }
+}

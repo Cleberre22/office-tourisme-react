@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
+import Footer from "../components/Footer";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -38,10 +39,10 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <section>
       <Menu />
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center register">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
               <div className="card-body">
@@ -63,13 +64,13 @@ const Register = () => {
                       </div>
                     </div>
                   )}
-                  <Form onSubmit={Register}>
+                  <Form onSubmit={Register} className="form-regist">
 
                     <Row>
                       <Col>
                         <Form.Group controlId="Name">
                           <Form.Label></Form.Label>
-                          <Form.Control
+                          <Form.Control className="form-control"
                             type="text"
                             value={name}
                             placeholder="Votre nom"
@@ -131,7 +132,7 @@ const Register = () => {
                     
                     <Button
                       variant="primary"
-                      className="mt-2"
+                      className="mt-3 mb-2"
                       size="lg"
                       block="block"
                       type="submit"
@@ -145,7 +146,8 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </section>
   );
 };
 

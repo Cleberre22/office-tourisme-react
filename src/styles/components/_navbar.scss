@@ -1,0 +1,36 @@
+.navbar {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8C8A93 !important;
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: 1px solid #fa130c;
+
+    .nav-global {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .nav-left {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-right {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        margin-left: 35%;
+        margin-right: 25%;
+        // margin-right: 130px;
+    }
+}
