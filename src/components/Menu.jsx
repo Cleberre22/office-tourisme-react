@@ -14,7 +14,7 @@ const Menu = () => {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="mx-auto my-2 my-lg-1 align-items-center "
+              className="mx-auto my-2 my-lg-2 align-items-center "
               style={{ maxHeight: "100px" }}
               navbarScroll
             >

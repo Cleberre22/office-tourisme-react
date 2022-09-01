@@ -1,17 +1,19 @@
 .placeMap {
+  
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #8c8a93c0;
     height: 600px;
+    // border-top: 1px solid #fa130c;
   }
   
   .leaflet-container {
-    width: 50%;
-    height: 50vh;
+    width: 30%;
+    height: 30vh;
     }
 
     .leaflet-marker-icon {
-      min-width: 60px;
-      min-height: 60px;
+      min-width: 30px;
+      min-height: 30px;
     }

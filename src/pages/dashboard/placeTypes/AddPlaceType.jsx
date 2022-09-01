@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Menu from "../../../components/Menu";
+import Footer from "../../../components/Footer";
 
 const AddPlaceType = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const AddPlaceType = () => {
   return (
     <div>
       <Menu />
-      <div className="container">
+      <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
@@ -74,7 +75,7 @@ const AddPlaceType = () => {
                     </Row>
                     <Button
                       variant="primary"
-                      className="mt-2"
+                      className="mt-3"
                       size="lg"
                       block="block"
                       type="submit"
@@ -88,6 +89,7 @@ const AddPlaceType = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

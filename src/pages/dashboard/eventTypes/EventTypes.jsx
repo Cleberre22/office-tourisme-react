@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Menu from "../../../components/Menu";
+import Footer from "../../../components/Footer";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -28,11 +29,12 @@ const EventTypes = () => {
   return (
     <div>
       <Menu />
-      <Link to={`/dashboard/eventTypes/add`} className="btn btn-primary me-2 m-3">
+      
+      <div className="container mt-5">
+      <Link to={`/dashboard/eventTypes/add`} className="btn btn-primary mb-4">
         Ajouter un nouveau type d'évènement
       </Link>
-      <div className="container mt-5">
-        <Table striped bordered hover>
+        <Table striped bordered hover className="text-center align-middle">
           <thead>
             <tr>
               <th>Nom du type d'évènement</th>
@@ -64,6 +66,7 @@ const EventTypes = () => {
           </tbody>
         </Table>
       </div>
+      <Footer /> 
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../../../components/Menu";
+import Footer from "../../../components/Footer";
 
 const EditEventType = () => {
 
@@ -82,6 +83,7 @@ const EditEventType = () => {
                         <Form.Group controlId="Name">
                           <Form.Label>Nom du type d'évènement</Form.Label>
                           <Form.Control
+                          className="mb-3"
                             type="text"
                             value={nameEventType}
                             onChange={(event) => {
@@ -93,7 +95,6 @@ const EditEventType = () => {
                     </Row>
                     <Button
                       variant="primary"
-                      className="mt-2"
                       size="lg"
                       block="block"
                       type="submit"
@@ -107,6 +108,7 @@ const EditEventType = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 

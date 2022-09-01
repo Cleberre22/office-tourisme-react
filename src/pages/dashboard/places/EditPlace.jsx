@@ -6,11 +6,11 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../../../components/Menu";
+import Footer from "../../../components/Footer";
 
 const EditPlace = () => {
-
   const { place } = useParams();
- 
+
   const navigate = useNavigate();
 
   const [namePlace, setNamePlace] = useState("");
@@ -34,28 +34,28 @@ const EditPlace = () => {
       setPlaceTypes(res.data);
     });
   };
-  
+
   const handleChange = (event) => {
     setPlace_types_id(event.target.value);
   };
 
- // GET - Récupère les valeurs de la fiche avec l'API
- const getPlace = async () => {
-  await axios
-    .get(`http://localhost:8000/api/places/${place}`)
-    .then((res) => {
-      console.log(res.data);
-      setNamePlace(res.data.namePlace);
-      setDescriptionPlace(res.data.descriptionPlace);
-      setAdressPlace(res.data.adressPlace);
-      setLatitudePlace(res.data.latitudePlace);
-      setLongitudePlace(res.data.longitudePlace);
-      setImagePlace(res.data.imagePlace);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+  // GET - Récupère les valeurs de la fiche avec l'API
+  const getPlace = async () => {
+    await axios
+      .get(`http://localhost:8000/api/places/${place}`)
+      .then((res) => {
+        console.log(res.data);
+        setNamePlace(res.data.namePlace);
+        setDescriptionPlace(res.data.descriptionPlace);
+        setAdressPlace(res.data.adressPlace);
+        setLatitudePlace(res.data.latitudePlace);
+        setLongitudePlace(res.data.longitudePlace);
+        setImagePlace(res.data.imagePlace);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const changeHandler = (event) => {
     setImagePlace(event.target.files[0]);
@@ -116,12 +116,12 @@ const EditPlace = () => {
                   )}
 
                   <Form onSubmit={updatePlace}>
-
-                  <Row>
+                    <Row>
                       <Col>
                         <Form.Group controlId="placeType">
                           <Form.Label>Type de lieu</Form.Label>
                           <Form.Select
+                            className="mb-3"
                             aria-label="Default select example"
                             onChange={handleChange}
                           >
@@ -141,6 +141,7 @@ const EditPlace = () => {
                         <Form.Group controlId="Name">
                           <Form.Label>Nom du lieu</Form.Label>
                           <Form.Control
+                            className="mb-3"
                             type="text"
                             value={namePlace}
                             onChange={(event) => {
@@ -153,10 +154,11 @@ const EditPlace = () => {
 
                     <Row>
                       <Col>
-                        <Form.Group controlId="Description">
+                        <Form.Group className="mb-3" controlId="Description">
                           <Form.Label>Description du lieu</Form.Label>
                           <Form.Control
-                            type="text"
+                            as="textarea"
+                            rows={3}
                             value={descriptionPlace}
                             onChange={(event) => {
                               setDescriptionPlace(event.target.value);
@@ -166,12 +168,12 @@ const EditPlace = () => {
                       </Col>
                     </Row>
 
-
                     <Row>
                       <Col>
                         <Form.Group controlId="AdressPlace">
                           <Form.Label>Adresse du lieu</Form.Label>
                           <Form.Control
+                            className="mb-3"
                             type="text"
                             value={adressPlace}
                             onChange={(event) => {
@@ -187,6 +189,7 @@ const EditPlace = () => {
                         <Form.Group controlId="Latitude">
                           <Form.Label>Latitude du lieu</Form.Label>
                           <Form.Control
+                            className="mb-3"
                             type="number"
                             value={latitudePlace}
                             onChange={(event) => {
@@ -202,6 +205,7 @@ const EditPlace = () => {
                         <Form.Group controlId="Longitude">
                           <Form.Label>Longitude du lieu</Form.Label>
                           <Form.Control
+                            className="mb-3"
                             type="number"
                             value={longitudePlace}
                             onChange={(event) => {
@@ -237,9 +241,9 @@ const EditPlace = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
-
 };
 
 export default EditPlace;

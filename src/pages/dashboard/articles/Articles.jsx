@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Menu from "../../../components/Menu";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../../../components/Footer";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -28,11 +29,12 @@ const Articles = () => {
   return (
     <div>
       <Menu />
-      <Link to={`/dashboard/articles/add`} className="btn btn-primary me-2 m-3">
+      
+      <div className="container mt-5">
+      <Link to={`/dashboard/articles/add`} className="btn btn-primary mb-4">
         Ajouter un nouvel article
       </Link>
-      <div className="container mt-5">
-        <Table striped bordered hover>
+        <Table striped bordered hover className="text-center align-middle">
           <thead>
             <tr>
               <th>Titre de l'article</th>
@@ -55,7 +57,7 @@ const Articles = () => {
                 <td>
                   <Link
                     to={`/dashboard/articles/edit/${article.id}`}
-                    className="btn btn-success me-2"
+                    className="btn btn-success mb-2"
                   >
                     Modifier
                   </Link>
@@ -73,6 +75,7 @@ const Articles = () => {
           </tbody>
         </Table>
       </div>
+      <Footer />
     </div>
   );
 };

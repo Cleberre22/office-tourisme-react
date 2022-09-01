@@ -81,7 +81,7 @@ const AddEvent = () => {
   return (
     <div>
       <Menu />
-      <div className="container">
+      <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
@@ -111,6 +111,7 @@ const AddEvent = () => {
                         <Form.Group controlId="eventType">
                           <Form.Label>Type d'évènement</Form.Label>
                           <Form.Select
+                            className="mb-3"
                             aria-label="Default select example"
                             onChange={handleChange1}
                           >
@@ -130,6 +131,7 @@ const AddEvent = () => {
                         <Form.Group controlId="Places">
                           <Form.Label>Lieu de l'évènement</Form.Label>
                           <Form.Select
+                           className="mb-3"
                             aria-label="Default select example"
                             onChange={handleChange2}
                           >
@@ -149,6 +151,7 @@ const AddEvent = () => {
                         <Form.Group controlId="Name">
                           <Form.Label>Nom de l'évènement</Form.Label>
                           <Form.Control
+                           className="mb-3"
                             type="text"
                             value={nameEvent}
                             onChange={(event) => {
@@ -161,10 +164,11 @@ const AddEvent = () => {
 
                     <Row>
                       <Col>
-                        <Form.Group controlId="Description">
+                        <Form.Group className="mb-3" controlId="Description">
                           <Form.Label>Description de l'évènement</Form.Label>
                           <Form.Control
-                            type="text"
+                            as="textarea"
+                            rows={3}
                             value={descriptionEvent}
                             onChange={(event) => {
                               setDescriptionEvent(event.target.value);
@@ -179,12 +183,12 @@ const AddEvent = () => {
                         <Form.Group controlId="Price">
                           <Form.Label>Prix de l'évènement</Form.Label>
                           <Form.Control
+                           className="mb-3"
                             type="text"
                             value={priceEvent}
                             onChange={(event) => {
                               setPriceEvent(event.target.value);
                             }}
-                            
                           />
                         </Form.Group>
                       </Col>
@@ -195,6 +199,7 @@ const AddEvent = () => {
                         <Form.Group controlId="StartDateEvent">
                           <Form.Label>Date de début</Form.Label>
                           <Form.Control
+                           className="mb-3"
                             type="date"
                             value={startDateEvent}
                             onChange={(event) => {
@@ -210,6 +215,7 @@ const AddEvent = () => {
                         <Form.Group controlId="EndDateEvent">
                           <Form.Label>Date de fin</Form.Label>
                           <Form.Control
+                           className="mb-3"
                             type="date"
                             value={endDateEvent}
                             onChange={(event) => {
@@ -231,7 +237,6 @@ const AddEvent = () => {
 
                     <Button
                       variant="primary"
-                      className="mt-2"
                       size="lg"
                       block="block"
                       type="submit"

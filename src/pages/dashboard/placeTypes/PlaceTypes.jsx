@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Menu from "../../../components/Menu";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../../../components/Footer";
 
 const PlaceTypes = () => {
   const [placeTypes, setPlaceTypes] = useState([]);
@@ -28,11 +29,12 @@ const PlaceTypes = () => {
   return (
     <div>
       <Menu />
-      <Link to={`/dashboard/placeTypes/add`} className="btn btn-primary me-2 m-3">
+      
+      <div className="container mt-5">
+      <Link to={`/dashboard/placeTypes/add`} className="btn btn-primary mb-4">
         Ajouter un nouveau type de lieu
       </Link>
-      <div className="container mt-5">
-        <Table striped bordered hover>
+        <Table striped bordered hover className="text-center align-middle">
           <thead>
             <tr>
               <th>Nom du type de lieu</th>
@@ -64,6 +66,7 @@ const PlaceTypes = () => {
           </tbody>
         </Table>
       </div>
+      <Footer />
     </div>
   );
 };

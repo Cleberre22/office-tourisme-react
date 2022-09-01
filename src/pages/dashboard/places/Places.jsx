@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Menu from "../../../components/Menu";
+import Footer from "../../../components/Footer";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -35,11 +36,12 @@ const Places = () => {
   return (
     <div>
       <Menu />
-      <Link to={`/dashboard/places/add`} className="btn btn-primary me-2 m-3">
+      
+      <div className="container mt-5">
+      <Link to={`/dashboard/places/add`} className="btn btn-primary mb-4">
         Ajouter un nouveau lieu
       </Link>
-      <div className="container mt-5">
-        <Table striped bordered hover>
+        <Table striped bordered hover className="text-center align-middle">
           <thead>
             <tr>
               <th>Nom du lieu</th>
@@ -77,6 +79,7 @@ const Places = () => {
                     Modifier
                   </Link>
                   <Button
+                  className="m-1"
                     variant="danger"
                     onClick={() => {
                       deletePlace(place.id);
@@ -90,6 +93,7 @@ const Places = () => {
           </tbody>
         </Table>
       </div>
+      <Footer />
     </div>
   );
 };

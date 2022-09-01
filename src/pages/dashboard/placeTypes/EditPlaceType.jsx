@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../../../components/Menu";
+import Footer from "../../../components/Footer";
 
 const EditPlaceType = () => {
 
@@ -93,7 +94,7 @@ const EditPlaceType = () => {
                     </Row>
                     <Button
                       variant="primary"
-                      className="mt-2"
+                      className="mt-3"
                       size="lg"
                       block="block"
                       type="submit"
@@ -107,6 +108,7 @@ const EditPlaceType = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 

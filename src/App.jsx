@@ -23,9 +23,11 @@ import EventTypes from "./pages/dashboard/eventTypes/EventTypes";
 import AddEventType from "./pages/dashboard/eventTypes/AddEventType";
 import EditEventType from "./pages/dashboard/eventTypes/EditEventType";
 
-// import Events from "./pages/dashboard/events/Events";
-// import AddEvent from "./pages/dashboard/events/AddEvent";
-// import EditEvent from "./pages/dashboard/events/EditEvent";
+import Events from "./pages/dashboard/events/Events";
+import AddEvent from "./pages/dashboard/events/AddEvent";
+import EditEvent from "./pages/dashboard/events/EditEvent";
+
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -56,13 +58,14 @@ function App() {
         <Route path="/dashboard/eventTypes/add" element={<AddEventType />} />
         <Route path="/dashboard/eventTypes/edit/:eventType" element={<EditEventType />} />
 
-        {/* <Route path="/dashboard/events" element={<Events />} />
+        <Route path="/dashboard/events" element={<Events />} />
         <Route path="/dashboard/events/add" element={<AddEvent />} />
-        <Route path="/dashboard/events/edit/:event" element={<EditEvent />} /> */}
+        <Route path="/dashboard/events/edit/:event" element={<EditEvent />} />
 
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
+
   );
 }
 

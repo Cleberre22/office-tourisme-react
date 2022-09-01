@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Menu from "../../../components/Menu";
+import Footer from "../../../components/Footer";
 
 const AddArticle = () => {
   const navigate = useNavigate();
@@ -13,7 +14,8 @@ const AddArticle = () => {
   const [titleArticle, setTitleArticle] = useState("");
   const [contentArticle, setContentArticle] = useState("");
   const [image, setImage] = useState("");
-  const [user_id, setUser_id] = useState(1);
+  const [user_id, setUser_id] = useState("1");
+  // const [user_id, setUser_id] = useState(1);
   const [validationError, setValidationError] = useState({});
 
   const changeHandler = (event) => {
@@ -44,7 +46,7 @@ const AddArticle = () => {
   return (
     <div>
       <Menu />
-      <div className="container">
+      <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
@@ -73,6 +75,7 @@ const AddArticle = () => {
                         <Form.Group controlId="Title">
                           <Form.Label>Titre de l'article</Form.Label>
                           <Form.Control
+                          className="mb-3"
                             type="text"
                             value={titleArticle}
                             onChange={(event) => {
@@ -84,21 +87,26 @@ const AddArticle = () => {
                     </Row>
                     <Row>
                       <Col>
-                        <Form.Group controlId="Content">
+                        <Form.Group
+                          className="mb-3"
+                          controlId="Content"
+                        >
                           <Form.Label>Contenu de l'article</Form.Label>
-                          <Form.Control
-                            type="text"
-                            value={contentArticle}
-                            onChange={(event) => {
-                              setContentArticle(event.target.value);
-                            }}
+                          <Form.Control 
+                          as="textarea" 
+                          rows={3}
+                          value={contentArticle}
+                          onChange={(event) => {
+                            setContentArticle(event.target.value);
+                          }}
                           />
                         </Form.Group>
+
                       </Col>
                     </Row>
                     <Row>
                       <Col>
-                        <Form.Group controlId="Image" className="mb-3">
+                        <Form.Group controlId="Image">
                           <Form.Label>Image</Form.Label>
                           <Form.Control type="file" onChange={changeHandler} />
                         </Form.Group>
@@ -107,7 +115,7 @@ const AddArticle = () => {
 
                     <Button
                       variant="primary"
-                      className="mt-2"
+                      className="mt-3"
                       size="lg"
                       block="block"
                       type="submit"
@@ -121,6 +129,7 @@ const AddArticle = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

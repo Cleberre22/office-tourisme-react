@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Menu from "../../../components/Menu";
+import Footer from "../../../components/Footer";
 
 const AddPlace = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ console.log(placeTypes);
   return (
     <div>
       <Menu />
-      <div className="container">
+      <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
@@ -95,6 +96,7 @@ console.log(placeTypes);
                         <Form.Group controlId="placeType">
                           <Form.Label>Type de lieu</Form.Label>
                           <Form.Select
+                          className="mb-3"
                             aria-label="Default select example"
                             onChange={handleChange}
                           >
@@ -114,6 +116,7 @@ console.log(placeTypes);
                         <Form.Group controlId="Name">
                           <Form.Label>Nom du lieu</Form.Label>
                           <Form.Control
+                          className="mb-3"
                             type="text"
                             value={namePlace}
                             onChange={(event) => {
@@ -126,10 +129,11 @@ console.log(placeTypes);
 
                     <Row>
                       <Col>
-                        <Form.Group controlId="Description">
+                        <Form.Group className="mb-3" controlId="Description">
                           <Form.Label>Description du lieu</Form.Label>
                           <Form.Control
-                            type="text"
+                            as="textarea"
+                            rows={3}
                             value={descriptionPlace}
                             onChange={(event) => {
                               setDescriptionPlace(event.target.value);
@@ -144,6 +148,7 @@ console.log(placeTypes);
                         <Form.Group controlId="Adress">
                           <Form.Label>Adresse du lieu</Form.Label>
                           <Form.Control
+                          className="mb-3"
                             type="text"
                             value={adressPlace}
                             onChange={(event) => {
@@ -159,6 +164,7 @@ console.log(placeTypes);
                         <Form.Group controlId="Latitude">
                           <Form.Label>Latitude du lieu</Form.Label>
                           <Form.Control
+                          className="mb-3"
                             type="number 8,6"
                             value={latitudePlace}
                             onChange={(event) => {
@@ -174,6 +180,7 @@ console.log(placeTypes);
                         <Form.Group controlId="Longitude">
                           <Form.Label>Longitude du lieu</Form.Label>
                           <Form.Control
+                          className="mb-3"
                             type="number 8,6"
                             value={longitudePlace}
                             onChange={(event) => {
@@ -186,16 +193,15 @@ console.log(placeTypes);
 
                     <Row>
                       <Col>
-                        <Form.Group controlId="Image" className="mb-3">
+                        <Form.Group controlId="Image">
                           <Form.Label>Image</Form.Label>
-                          <Form.Control type="file" onChange={changeHandler} />
+                          <Form.Control className="mb-3" type="file" onChange={changeHandler} />
                         </Form.Group>
                       </Col>
                     </Row>
 
                     <Button
                       variant="primary"
-                      className="mt-2"
                       size="lg"
                       block="block"
                       type="submit"
@@ -209,6 +215,7 @@ console.log(placeTypes);
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
