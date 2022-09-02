@@ -72,7 +72,7 @@ const EditArticle = () => {
   return (
     <div>
       <Menu />
-      <div className="container mt-5">
+      <div className="container mt-5 addArticle">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
@@ -123,7 +123,7 @@ const EditArticle = () => {
                           <Form.Label>Contenu de l'article</Form.Label>
                           <Form.Control 
                           as="textarea" 
-                          rows={3}
+                          rows={7}
                           value={contentArticle}
                           onChange={(event) => {
                             setContentArticle(event.target.value);

@@ -21,6 +21,7 @@ const EditPlace = () => {
   const [longitudePlace, setLongitudePlace] = useState("");
   const [place_types_id, setPlace_types_id] = useState("");
   const [placeTypes, setPlaceTypes] = useState([]);
+  const [namePlaceType, setNamePlaceType] = useState([]);
   const [validationError, setValidationError] = useState({});
 
   useEffect(() => {
@@ -44,13 +45,15 @@ const EditPlace = () => {
     await axios
       .get(`http://localhost:8000/api/places/${place}`)
       .then((res) => {
-        console.log(res.data);
-        setNamePlace(res.data.namePlace);
-        setDescriptionPlace(res.data.descriptionPlace);
-        setAdressPlace(res.data.adressPlace);
-        setLatitudePlace(res.data.latitudePlace);
-        setLongitudePlace(res.data.longitudePlace);
-        setImagePlace(res.data.imagePlace);
+        console.log(res.data[0]);
+        setNamePlace(res.data[0].namePlace);
+        setDescriptionPlace(res.data[0].descriptionPlace);
+        setAdressPlace(res.data[0].adressPlace);
+        setLatitudePlace(res.data[0].latitudePlace);
+        setLongitudePlace(res.data[0].longitudePlace);
+        setImagePlace(res.data[0].imagePlace);
+        setPlace_types_id(res.data[0].place_types_id);
+        setNamePlaceType(res.data[0].namePlaceType)
       })
       .catch((error) => {
         console.log(error);
@@ -73,6 +76,7 @@ const EditPlace = () => {
     formData.append("latitudePlace", latitudePlace);
     formData.append("longitudePlace", longitudePlace);
     formData.append("place_types_id", place_types_id);
+    formData.append("namePlaceType", namePlaceType);
     formData.append("imagePlace", imagePlace);
     if (imagePlace !== null) {
       formData.append("imagePlace", imagePlace);
@@ -125,7 +129,9 @@ const EditPlace = () => {
                             aria-label="Default select example"
                             onChange={handleChange}
                           >
-                            <option>Choisissez un type de lieu</option>
+                            <option value={place_types_id}>
+                              {namePlaceType}
+                            </option>
                             {placeTypes.map((placeType) => (
                               <option key={placeType.id} value={placeType.id}>
                                 {placeType.namePlaceType}

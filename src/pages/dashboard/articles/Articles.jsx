@@ -30,7 +30,7 @@ const Articles = () => {
     <div>
       <Menu />
       
-      <div className="container mt-5">
+      <div className="container mt-5 indexArticle">
       <Link to={`/dashboard/articles/add`} className="btn btn-primary mb-4">
         Ajouter un nouvel article
       </Link>

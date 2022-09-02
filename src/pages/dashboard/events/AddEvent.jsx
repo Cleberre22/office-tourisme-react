@@ -13,13 +13,15 @@ const AddEvent = () => {
   const [nameEvent, setNameEvent] = useState("");
   const [descriptionEvent, setDescriptionEvent] = useState("");
   const [imageEvent, setImageEvent] = useState("");
-  const [priceEvent, setPriceEvent] = useState("");
+  const [priceEvent, setPriceEvent] = useState();
   const [startDateEvent, setStartDateEvent] = useState("");
   const [endDateEvent, setEndDateEvent] = useState("");
-  const [place_id, setPlace_id] = useState("");
+  const [places_id, setPlaces_id] = useState("");
   const [event_types_id, setEvent_types_id] = useState("");
+
   const [eventTypes, setEventTypes] = useState([]);
   const [places, setPlaces] = useState([]);
+
   const [validationError, setValidationError] = useState({});
 
   const changeHandler = (event) => {
@@ -28,10 +30,14 @@ const AddEvent = () => {
 
   const handleChange1 = (event) => {
     setEvent_types_id(event.target.value);
+    console.log(event_types_id);
+    console.log(event.target.value);
   };
 
   const handleChange2 = (event) => {
-    setPlace_id(event.target.value);
+    setPlaces_id(event.target.value);
+    console.log(places_id);
+    console.log(event.target.value);
   };
 
   useEffect(() => {
@@ -62,7 +68,7 @@ const AddEvent = () => {
     formData.append("nameEvent", nameEvent);
     formData.append("descriptionEvent", descriptionEvent);
     formData.append("event_types_id", event_types_id);
-    formData.append("place_id", place_id);
+    formData.append("places_id", places_id);
     formData.append("imageEvent", imageEvent);
     formData.append("priceEvent", priceEvent);
     formData.append("startDateEvent", startDateEvent);
@@ -70,13 +76,16 @@ const AddEvent = () => {
 
     await axios
       .post(`http://localhost:8000/api/events`, formData)
-      .then(navigate("/dashboard/events"))
+      .then(navigate("/dashboard/events"), function(response){
+        console.log(response);
+      })
       .catch(({ response }) => {
         if (response.status === 422) {
           setValidationError(response.data.errors);
         }
       });
   };
+
 
   return (
     <div>
@@ -108,7 +117,7 @@ const AddEvent = () => {
 
                     <Row>
                       <Col>
-                        <Form.Group controlId="eventType">
+                        <Form.Group controlId="EventType">
                           <Form.Label>Type d'évènement</Form.Label>
                           <Form.Select
                             className="mb-3"
@@ -116,8 +125,8 @@ const AddEvent = () => {
                             onChange={handleChange1}
                           >
                             <option>Choisissez un type d'évènement</option>
-                            {eventTypes.map((eventType) => (
-                              <option key={eventType.id} value={eventType.id}>
+                            {eventTypes.map((eventType, index) => (
+                              <option key={index} value={eventType.id}>
                                 {eventType.nameEventType}
                               </option>
                             ))}
@@ -136,8 +145,8 @@ const AddEvent = () => {
                             onChange={handleChange2}
                           >
                             <option>Choisissez un lieu pour l'évènement</option>
-                            {places.map((place) => (
-                              <option key={place.id} value={place.id}>
+                            {places.map((place, index) => (
+                              <option key={index} value={place.id}>
                                 {place.namePlace}
                               </option>
                             ))}
@@ -184,7 +193,7 @@ const AddEvent = () => {
                           <Form.Label>Prix de l'évènement</Form.Label>
                           <Form.Control
                            className="mb-3"
-                            type="text"
+                            type="number"
                             value={priceEvent}
                             onChange={(event) => {
                               setPriceEvent(event.target.value);
@@ -241,7 +250,7 @@ const AddEvent = () => {
                       block="block"
                       type="submit"
                     >
-                      Créer le lieu
+                      Créer l'évènement
                     </Button>
                   </Form>
                 </div>

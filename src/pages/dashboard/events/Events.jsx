@@ -1,97 +1,110 @@
-// import React, { useEffect, useState } from "react";
-// import Table from "react-bootstrap/Table";
-// import Button from "react-bootstrap/Button";
-// import Menu from "../../../components/Menu";
-// import axios from "axios";
-// import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import Menu from "../../../components/Menu";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-// const Places = () => {
-//   const [places, setPlaces] = useState([]);
-//   const [placeTypes, setPlaceTypes] = useState([]);
+const Events = () => {
+  const [events, setEvents] = useState([]);
+  const [places, setPlaces] = useState([]);
+  const [eventTypes, setEventTypes] = useState([]);
 
-//   useEffect(() => {
-//     displayPlaces();
-//     displayPlaceTypes();
-//   }, []); // Sans les crochets ça tourne en boucle
+  useEffect(() => {
+    displayEvents();
+    displayPlaces();
+    displayPlaceTypes();
+  }, []); // Sans les crochets ça tourne en boucle
 
-//   const displayPlaces = async () => {
-//     await axios.get("http://localhost:8000/api/places").then((res) => {
-//       setPlaces(res.data);
-//       console.log(res.data);
-//     });
-//   };
-//   // console.log(articles);
-//   const deletePlace = (id) => {
-//     axios.delete(`http://localhost:8000/api/places/${id}`).then(displayPlaces);
-//   };
+  const displayEvents = async () => {
+    await axios.get("http://localhost:8000/api/events").then((res) => {
+      setEvents(res.data);
+      console.log(res.data);
+    });
+  };
 
-//   const displayPlaceTypes = async () => {
-//     await axios.get("http://localhost:8000/api/place_types").then((res) => {
-//       setPlaceTypes(res.data);
-//       // console.log(res.data);
-//     });
-//   };
+  const displayPlaces = async () => {
+    await axios.get("http://localhost:8000/api/places").then((res) => {
+      setPlaces(res.data);
+      console.log(res.data);
+      console.log(places);
+    });
+  };
 
-//   return (
-//     <div>
-//       <Menu />
-//       <Link to={`/dashboard/places/add`} className="btn btn-primary me-2 m-3">
-//         Ajouter un nouveau lieu
-//       </Link>
-//       <div className="container mt-5">
-//         <Table striped bordered hover>
-//           <thead>
-//             <tr>
-//               <th>Nom du lieu</th>
-//               <th>Type du lieu</th>
-//               <th>Description du lieu</th>
-//               <th>Adresse du lieu</th>
-//               <th>Latitude du lieu</th>
-//               <th>Longitude du lieu</th>
-//               <th>Image</th>
-//               <th>Actions</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {places.map((place) => (
-//               <tr key={place.id}>
-//                 <td>{place.namePlace}</td>
+  const displayPlaceTypes = async () => {
+    await axios.get("http://localhost:8000/api/event_types").then((res) => {
+      setEventTypes(res.data);
+      // console.log(res.data);
+    });
+  };
 
-//                 <td>{place.namePlaceType}</td>
+  const deleteEvent = (id) => {
+    axios.delete(`http://localhost:8000/api/events/${id}`).then(displayEvents);
+  };
 
-//                 <td>{place.descriptionPlace}</td>
-//                 <td>{place.adressPlace}</td>
-//                 <td>{place.latitudePlace}</td>
-//                 <td>{place.longitudePlace}</td>
-//                 <td>
-//                   <img
-//                     src={`http://localhost:8000/storage/uploads/${place.imagePlace}`}
-//                     width="75px"
-//                   />
-//                 </td>
-//                 <td>
-//                   <Link
-//                     to={`/dashboard/places/edit/${place.id}`}
-//                     className="btn btn-success me-2"
-//                   >
-//                     Modifier
-//                   </Link>
-//                   <Button
-//                     variant="danger"
-//                     onClick={() => {
-//                       deletePlace(place.id);
-//                     }}
-//                   >
-//                     Supprimer
-//                   </Button>
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </Table>
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      <Menu />
+      
+      <div className="container mt-5">
+      <Link to={`/dashboard/events/add`} className="btn btn-primary mb-4">
+        Ajouter un nouvel évènement
+      </Link>
+        <Table striped bordered hover className="text-center align-middle">
+          <thead>
+            <tr>
+              <th>Nom de l'évènement</th>
+              <th>Type de l'évènement</th>
+              <th>Lieu de l'évènement</th>
+              <th>Description de l'évènement</th>
+              <th>Prix de l'évènement</th>
+              <th>Date de début</th>
+              <th>Date de fin</th>
+              <th>Image</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {events.map((event) => (
+              <tr key={event.id}>
+                <td>{event.nameEvent}</td>
+                <td>{event.nameEventType}</td>
+                <td>{event.namePlace}</td>
+                <td>{event.descriptionEvent}</td>
+                <td>{event.priceEvent}</td>
+                <td>{event.startDateEvent}</td>
+                <td>{event.endDateEvent}</td>
+                
+                <td>
+                  <img
+                    src={`http://localhost:8000/storage/uploads/${event.imageEvent}`}
+                    width="75px"
+                  />
+                </td>
+                <td>
+                  <Link
+                    to={`/dashboard/events/edit/${event.id}`}
+                    className="btn btn-success"
+                  >
+                    Modifier
+                  </Link>
+                  <Button
+                  className="m-1"
+                    variant="danger"
+                    onClick={() => {
+                      deleteEvent(event.id);
+                    }}
+                  >
+                    Supprimer
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+    </div>
+  );
+};
 
-// export default Places;
+export default Events;

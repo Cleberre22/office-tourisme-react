@@ -35,7 +35,7 @@ const AddPlaceType = () => {
   return (
     <div>
       <Menu />
-      <div className="container mt-5">
+      <div className="container mt-5 placeType">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
