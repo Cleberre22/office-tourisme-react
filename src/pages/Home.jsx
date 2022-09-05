@@ -58,7 +58,7 @@ const Home = () => {
         <Container fluid className="cardContainer py-5">
         <h2 className="titleActu my-5">Actualités</h2>
           <Row  className="justify-content-md-center articleHome">
-            {articles.map((article) => (
+            {articles.slice(0,6).map((article) => (
               <Col lg={3} className="colCard">
                 <Card style={{ width: "18rem" }} className="my-3 cardHome">
                   <Card.Img
