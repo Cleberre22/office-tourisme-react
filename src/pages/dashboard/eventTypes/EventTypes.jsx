@@ -5,6 +5,7 @@ import Menu from "../../../components/Menu";
 import Footer from "../../../components/Footer";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Logo from "../../../components/Logo";
 
 const EventTypes = () => {
   const [eventTypes, setEventTypes] = useState([]);
@@ -28,6 +29,7 @@ const EventTypes = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       
       <div className="container mt-5">

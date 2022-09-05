@@ -5,6 +5,7 @@ import Menu from "../../../components/Menu";
 import Footer from "../../../components/Footer";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Logo from "../../../components/Logo";
 
 const Places = () => {
   const [places, setPlaces] = useState([]);
@@ -35,6 +36,7 @@ const Places = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       
       <div className="container mt-5">

@@ -5,6 +5,7 @@ import Menu from "../../../components/Menu";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Footer from "../../../components/Footer";
+import Logo from "../../../components/Logo";
 
 const PlaceTypes = () => {
   const [placeTypes, setPlaceTypes] = useState([]);
@@ -28,6 +29,7 @@ const PlaceTypes = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       
       <div className="container mt-5">

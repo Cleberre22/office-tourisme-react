@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Menu from "../../../components/Menu";
 import Footer from "../../../components/Footer";
+import Logo from "../../../components/Logo";
 
 const AddPlaceType = () => {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const AddPlaceType = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       <div className="container mt-5 placeType">
         <div className="row justify-content-center">

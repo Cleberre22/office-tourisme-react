@@ -6,6 +6,8 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Menu from "../../../components/Menu";
+import Logo from "../../../components/Logo";
+import Footer from "../../../components/Footer";
 
 const AddEvent = () => {
   const navigate = useNavigate();
@@ -89,6 +91,7 @@ const AddEvent = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       <div className="container mt-5">
         <div className="row justify-content-center">
@@ -259,6 +262,7 @@ const AddEvent = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

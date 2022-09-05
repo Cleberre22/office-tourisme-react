@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Menu from "../../../components/Menu";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Logo from "../../../components/Logo";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -44,6 +45,7 @@ const Events = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       
       <div className="container mt-5">

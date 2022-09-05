@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../../../components/Menu";
 import Footer from "../../../components/Footer";
+import Logo from "../../../components/Logo";
 
 const EditEventType = () => {
 
@@ -53,6 +54,7 @@ const EditEventType = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       <div className="container mt-5">
         <div className="row justify-content-center">

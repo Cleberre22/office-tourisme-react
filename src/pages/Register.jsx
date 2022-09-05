@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer";
+import Logo from "../components/Logo";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ const Register = () => {
 
   return (
     <section>
+      <Logo />
       <Menu />
       <div className="container">
         <div className="row justify-content-center register">

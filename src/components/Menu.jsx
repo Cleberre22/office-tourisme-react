@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Logo from "./Logo";
 
 const Menu = () => {
 
@@ -15,7 +14,6 @@ const Menu = () => {
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="mx-auto my-2 my-lg-2 align-items-center "
-              style={{ maxHeight: "100px" }}
               navbarScroll
             >
               <div className="nav-global">
@@ -39,9 +37,6 @@ const Menu = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
               </div>
-
-              <Logo />
-
               <div className="nav-right">
                 <NavDropdown title="Lieu" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="/dashboard/places/add">
@@ -80,8 +75,6 @@ const Menu = () => {
                 </NavDropdown>
               </div>
               </div>
-              
-              
             </Nav>
           </Navbar.Collapse>
         </Container>

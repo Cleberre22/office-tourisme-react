@@ -4,11 +4,13 @@ import Button from "react-bootstrap/Button";
 import Menu from "../../components/Menu";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Logo from "../../components/Logo";
 import Footer from "../../components/Footer";
 
 const index = () => {
   return (
     <div>
+      <Logo />
       <Menu />
       <h1>DASHBOARD</h1>
       <Link to={`/dashboard/articles/add`} className="btn btn-primary me-2 m-3">

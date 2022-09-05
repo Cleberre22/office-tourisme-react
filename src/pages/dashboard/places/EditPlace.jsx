@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Logo from "../../../components/Logo";
 import Menu from "../../../components/Menu";
 import Footer from "../../../components/Footer";
 
@@ -94,6 +95,7 @@ const EditPlace = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       <div className="container mt-5">
         <div className="row justify-content-center">

@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../../../components/Menu";
 import Footer from "../../../components/Footer";
+import Logo from "../../../components/Logo";
 
 const EditArticle = () => {
 
@@ -36,10 +37,6 @@ const EditArticle = () => {
         console.log(error);
       });
   };
-
-
-
-  
 
   const changeHandler = (event) => {
     setImage(event.target.files[0]);
@@ -71,6 +68,7 @@ const EditArticle = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       <div className="container mt-5 addArticle">
         <div className="row justify-content-center">

@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../../../components/Menu";
+import Logo from "../../../components/Logo";
 
 const EditEvent = () => {
 
@@ -115,6 +116,7 @@ const EditEvent = () => {
 
   return (
     <div>
+      <Logo />
       <Menu />
       <div className="container mt-5">
         <div className="row justify-content-center">
