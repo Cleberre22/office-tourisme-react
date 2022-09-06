@@ -11,7 +11,7 @@
     border: 1px solid #fa130c;
     border-radius: 20px;
     padding: 10px;
-    color:  #f1f1f1;
+    color:  blue;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     input {
@@ -19,7 +19,8 @@
     }
 
     label {
-      margin-left: 10px;
+      margin-left: 5px;
+      margin-right: 30px;
       cursor: pointer;
     }
   }

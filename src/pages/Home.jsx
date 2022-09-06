@@ -16,6 +16,7 @@ import PlaceMap from "../components/PlaceMap";
 import Footer from "../components/Footer";
 import ListePlace from "../components/ListePlace";
 
+import { Parallax, Background } from "react-parallax";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
@@ -48,10 +49,9 @@ const Home = () => {
       {/* ------------------------- SECTION VIDEO ------------------------- */}
 
       <section className="sectionVideo">
-        <Container fluid  className="justify-content-center video1">
-        <Video className="video"/>
+        <Container fluid className="justify-content-center video1">
+          <Video className="video" />
         </Container>
-      
       </section>
 
       {/* ------------------------- SECTION ARTICLE ------------------------- */}
@@ -82,15 +82,20 @@ const Home = () => {
       </Container>
 
       {/* ------------------------- SECTION PLACEMAP ------------------------- */}
+
+      <section className="parallaxSection">
+     {/* <h1 className="titlePara">Saint-Nazaire</h1>
+      */}
+      </section>
+
+      {/* ------------------------- SECTION PLACEMAP ------------------------- */}
       <section className="sectionPlaceMap">
         <Container fluid>
           <h2 className="titlePlaceMap py-5">Découvrir</h2>
-          <Filters/>
+          <Filters />
 
           <Row>
-
             <Col lg={12} className="contentGridMap">
-
               {/* <Col lg={2} className="listePlace">
                 {places.map((place) => (
                   <Col lg={12}>{place.namePlace}</Col>
@@ -102,11 +107,8 @@ const Home = () => {
                   <PlaceMap />
                 </Col>
               </Col>
-
             </Col>
-
           </Row>
-
         </Container>
       </section>
 

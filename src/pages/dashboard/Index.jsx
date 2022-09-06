@@ -6,25 +6,73 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Logo from "../../components/Logo";
 import Footer from "../../components/Footer";
+import Nav from "react-bootstrap/Nav";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-const index = () => {
+const Index = () => {
+
+
+
+
+
+  const [articles, setArticles] = useState([]);
+  const [places, setPlaces] = useState([]);
+
+  useEffect(() => {
+    displayPlaces();
+    displayArticles();
+  }, []); // Sans les crochets ça tourne en boucle
+
+  const displayArticles = async () => {
+    await axios.get("http://localhost:8000/api/articles").then((res) => {
+      setArticles(res.data);
+      console.log(res.data);
+    });
+  };
+  const displayPlaces = async () => {
+    await axios.get("http://localhost:8000/api/places").then((res) => {
+      setPlaces(res.data);
+      console.log(res.data);
+    });
+  };
+
+
+
+
+
+
+
+
   return (
     <div>
       <Logo />
       <Menu />
-      <h1>DASHBOARD</h1>
-      <Link to={`/dashboard/articles/add`} className="btn btn-primary me-2 m-3">
-        Ajouter un nouvel article
-      </Link>
-      <Link
-        to={`/dashboard/placeTypes/add`}
-        className="btn btn-primary me-2 m-3"
-      >
-        Ajouter un nouveau type de lieu
-      </Link>
+
+      <section className="dashSection">
+        <Row className="gridDash">
+          <Col lg={4} className="col1">
+            <h2>dfhgrhg</h2>
+          </Col>
+
+          <Col lg={4} className="col2">
+            <h2>sfht</h2>
+          </Col>
+
+          <Col lg={4} className="col3">
+            <h2>fsdsht</h2>
+          </Col>
+        </Row>
+
+      </section>
+
+     
+
+
       <Footer />
     </div>
   );
 };
 
-export default index;
+export default Index;

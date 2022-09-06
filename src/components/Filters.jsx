@@ -7,6 +7,8 @@ import ListePlace from "./ListePlace";
 
 const Filters = () => {
   console.log(Filters);
+  
+  
   const [data, setData] = useState([]);
   const [rangeValue, setRangeValue] = useState(1);
   const [selectedRadio, setSelectedRadio] = useState("");
@@ -18,6 +20,7 @@ const Filters = () => {
       .get("http://localhost:8000/api/places")
       .then((res) => setData(res.data));
   }, []);
+  console.log(data)
 
   return (
     <div className="filters">
@@ -30,33 +33,34 @@ const Filters = () => {
             defaultValue={rangeValue}
             onChange={(e) => setRangeValue(e.target.value)}
           />
-          {/* {radios.map((continent) => (
+          {radios.map((placeType) => (
             <li>
               <input
                 type="radio"
-                id={continent}
-                name="continentRadio"
-                checked={continent === selectedRadio}
+                id={placeType}
+                name="placeTypeRadio"
+                checked={placeType === selectedRadio}
                 onChange={(e) => setSelectedRadio(e.target.id)}
               />
-              <label htmlFor={continent}>{continent}</label>
+              <label htmlFor={placeType}>{placeType}</label>
             </li>
-          ))} */}
+          ))}
         </ul>
 
 
 
-        {/* {selectedRadio && (
+        {selectedRadio && (
           <button onClick={() => setSelectedRadio("")}>
             Annuler la recherche
           </button>
-        )} */}
+        )}
 
 
 
         <ul>
           {data
-            .filter((place) => place.namePlace[0].includes(selectedRadio))
+          
+            .filter((placeType) => placeType.namePlaceType[0].includes(selectedRadio))
             // .sort((a, b) => b.population - a.population)
             .slice(0, rangeValue)
             .map((place, index) => (

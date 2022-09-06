@@ -69,3 +69,22 @@ a:-webkit-any-link {
   text-decoration: none;
   cursor: pointer;
 }
+
+.parallaxSection {
+  border-top: 1px solid #fa130c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 30vh;
+  background-image: url(../../public/bgPara2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ 
+  .titlePara {
+    color: coral;
+    font-weight: 900;
+    font-size: 20rem;
+  }
+}
