@@ -16,6 +16,7 @@ import PlaceMap from "../components/PlaceMap";
 import Footer from "../components/Footer";
 import ListePlace from "../components/ListePlace";
 
+
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [places, setPlaces] = useState([]);
@@ -47,7 +48,10 @@ const Home = () => {
       {/* ------------------------- SECTION VIDEO ------------------------- */}
 
       <section className="sectionVideo">
-        <Video className="video" />
+        <Container fluid  className="justify-content-center video1">
+        <Video className="video"/>
+        </Container>
+      
       </section>
 
       {/* ------------------------- SECTION ARTICLE ------------------------- */}
@@ -56,7 +60,7 @@ const Home = () => {
         <h2 className="titleActu my-5">Actualités</h2>
         <Row className="justify-content-md-center articleHome">
           {articles.slice(0, 8).map((article) => (
-            <Col lg={3} className="colCard">
+            <Col lg={3} sm={6} className="colCard">
               <Card style={{ width: "18rem" }} className="my-3 cardHome">
                 <Card.Img
                   className="imgCardActu"
@@ -87,11 +91,11 @@ const Home = () => {
 
             <Col lg={12} className="contentGridMap">
 
-              <Col lg={2} className="listePlace">
-                {/* {places.map((place) => ( */}
-                  <Col lg={12}><Filters /></Col>
-                {/* ))} */}
-              </Col>
+              {/* <Col lg={2} className="listePlace">
+                {places.map((place) => (
+                  <Col lg={12}>{place.namePlace}</Col>
+                ))}
+              </Col> */}
 
               <Col lg={10} className="gridMap">
                 <Col lg={12} className="justify-content-center">

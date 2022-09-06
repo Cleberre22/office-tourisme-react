@@ -62,7 +62,7 @@ const Filters = () => {
             .map((place, index) => (
 
 
-                <Col lg={4}>{place.namePlace}</Col>
+                <Col lg={4} className="listFilterPlace">{place.namePlace}</Col>
                 // <Col lg={4}><ListePlace /></Col>
             //   <Link to={country.name.common.toLowerCase()}>
             //     <Card key={index} country={country} />

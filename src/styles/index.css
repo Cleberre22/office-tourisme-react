@@ -85,13 +85,13 @@ a:-webkit-any-link {
   flex-direction: column;
 }
 
-.card {
+.cardRegister {
   border: 1px rgba(250, 20, 12, 0.231372549) solid;
 }
-.card hr {
+.cardRegister hr {
   color: #fa130c;
 }
-.card .form-control {
+.cardRegister .form-control {
   border: 1px rgba(250, 20, 12, 0.231372549) solid;
 }
 
@@ -162,8 +162,8 @@ a:-webkit-any-link {
 }
 
 .leaflet-container {
-  width: 30%;
-  height: 30vh;
+  width: 100%;
+  height: 50vh;
 }
 
 .leaflet-marker-icon {
@@ -185,9 +185,8 @@ a:-webkit-any-link {
 }
 
 .cardHome {
-  border: none;
-  max-height: 350px;
-  background-color: rgba(250, 20, 12, 0.1450980392);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid #fa130c;
 }
 .cardHome .titleCardArticleHome {
   font-family: "JosefinSans-Medium";
@@ -221,12 +220,19 @@ a:-webkit-any-link {
   border-bottom: 1px solid #fa130c;
 }
 
+.video1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .video {
   width: 100%;
 }
 
 .sectionPlaceMap {
   border-top: 1px solid #fa130c;
+  padding: 2%;
 }
 .sectionPlaceMap .titlePlaceMap {
   text-align: center;
@@ -234,4 +240,82 @@ a:-webkit-any-link {
   font-size: 5rem;
   font-family: "Great Vibes", cursive;
   text-align: center;
+}
+.sectionPlaceMap .contentGridMap {
+  padding: 3%;
+  display: flex;
+  justify-content: center;
+  color: #fa130c;
+}
+.sectionPlaceMap .contentGridMap .listePlace {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.sectionPlaceMap .contentGridMap .gridMap {
+  display: flex;
+  justify-content: center;
+}
+
+.filters {
+  text-align: center;
+}
+.filters .radio-container {
+  margin-bottom: 20px;
+  background: rgba(140, 138, 147, 0.3882352941);
+  border: 1px solid #fa130c;
+  border-radius: 20px;
+  padding: 10px;
+  color: #f1f1f1;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.filters .radio-container input {
+  transform: translateY(1px);
+}
+.filters .radio-container label {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.filters input[type=text] {
+  padding: 10px;
+  border-radius: 40px;
+  font-size: 1.3rem;
+  border: 3px solid #8C8A93;
+  outline: none;
+  transition: 0.4s;
+  text-align: center;
+  width: 400px;
+  margin-bottom: 20px;
+}
+.filters input[type=text]:focus {
+  background: #8C8A93;
+  border-radius: 4px;
+  color: rgb(243, 243, 243);
+}
+.filters button {
+  margin: 0 auto 20px;
+  background: none;
+  border: 2px solid #8C8A93;
+  padding: 4px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.filters button:hover {
+  background: #8C8A93;
+}
+.filters ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.filters .listFilterPlace {
+  padding-top: 30px;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(39, 38, 38, 0.932);
+  font-size: 16px;
 }/*# sourceMappingURL=index.css.map */
