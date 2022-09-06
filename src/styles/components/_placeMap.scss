@@ -1,5 +1,6 @@
 .sectionPlaceMap {
 border-top: 1px solid #fa130c;
+padding: 2%;
 
 .titlePlaceMap {
     text-align: center;
@@ -8,6 +9,26 @@ border-top: 1px solid #fa130c;
     font-size: 5rem;
     font-family: 'Great Vibes', cursive;
     text-align: center;
+}
+
+.contentGridMap{
+ padding: 5%;
+    display: flex;
+    justify-content: center;
+   
+    color: #fa130c;
+
+    .listePlace {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .gridMap {
+      display: flex;
+      justify-content: center;
+    }
 }
 
 }
