@@ -14,15 +14,18 @@
   }
 
  .cardHome {
-    border: none;
-   max-height: 350px;
-    background-color:  #fa140c25;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   border: 1px solid #fa130c;
+   //  border: none;
+   // max-height: 350px;
+   //  background-color:  #fa140c25;
 
 
     .titleCardArticleHome {
         font-family: "JosefinSans-Medium";
         font-size: 17px;
         min-height: 80px;
+        
       }
       
     .imgCardActu {

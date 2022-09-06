@@ -14,6 +14,7 @@ import Video from "../components/Video";
 import Filters from "../components/Filters";
 import PlaceMap from "../components/PlaceMap";
 import Footer from "../components/Footer";
+import ListePlace from "../components/ListePlace";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
@@ -87,9 +88,9 @@ const Home = () => {
             <Col lg={12} className="contentGridMap">
 
               <Col lg={2} className="listePlace">
-                {places.map((place) => (
-                  <Col lg={12}>{place.namePlace}</Col>
-                ))}
+                {/* {places.map((place) => ( */}
+                  <Col lg={12}><Filters /></Col>
+                {/* ))} */}
               </Col>
 
               <Col lg={10} className="gridMap">

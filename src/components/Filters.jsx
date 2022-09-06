@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
+import ListePlace from "./ListePlace";
 
 const Filters = () => {
   console.log(Filters);
@@ -60,7 +61,9 @@ const Filters = () => {
             .slice(0, rangeValue)
             .map((place, index) => (
 
+
                 <Col lg={4}>{place.namePlace}</Col>
+                // <Col lg={4}><ListePlace /></Col>
             //   <Link to={country.name.common.toLowerCase()}>
             //     <Card key={index} country={country} />
             //   </Link>

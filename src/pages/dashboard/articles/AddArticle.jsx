@@ -16,7 +16,6 @@ const AddArticle = () => {
   const [contentArticle, setContentArticle] = useState("");
   const [image, setImage] = useState("");
   const [user_id, setUser_id] = useState("1");
-  // const [user_id, setUser_id] = useState(1);
   const [validationError, setValidationError] = useState({});
 
   const changeHandler = (event) => {

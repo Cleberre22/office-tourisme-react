@@ -46,7 +46,7 @@ const Register = () => {
       <div className="container">
         <div className="row justify-content-center register">
           <div className="col-12 col-sm-12 col-md-6">
-            <div className="card">
+            <div className="cardRegister">
               <div className="card-body">
                 <h4 className="card-title text-center">S'inscrire</h4>
                 <hr />

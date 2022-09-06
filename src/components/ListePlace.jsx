@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import axios from "axios";
-
 import Col from "react-bootstrap/Col";
-
-
-
 
 const ListePlace = () => {
 
@@ -22,10 +17,6 @@ const ListePlace = () => {
           console.log(res.data);
         });
       };
- 
-  
-  
-
 
     return (
         <div>
