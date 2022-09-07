@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Logo from "../components/Logo";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer";
@@ -30,12 +32,27 @@ console.log(article);
       <Menu />
  
         <section className="articleShow" >
-            <img 
+
+
+
+<Row>
+    <Col lg={12}>
+    <img 
                 className="imageShowArticle"
                 src={`http://localhost:8000/storage/uploads/${article.image}`} 
                 alt="{article.titleArticle}" />
-          <p>{article.titleArticle}</p> 
+    </Col>
+    
+    <p>{article.titleArticle}</p> 
           <p>{article.contentArticle}</p> 
+</Row>
+
+
+
+
+
+
+       
         </section>
    
       <Footer />
