@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 
 import Logo from "../components/Logo";
 import Menu from "../components/Menu";
@@ -43,7 +44,6 @@ const Home = () => {
   return (
     <div>
       <Logo />
-
       <Menu />
 
       {/* ------------------------- SECTION VIDEO ------------------------- */}
@@ -61,21 +61,23 @@ const Home = () => {
         <Row className="justify-content-md-center articleHome">
           {articles.slice(0, 8).map((article) => (
             <Col lg={3} sm={6} className="colCard">
-              <Card style={{ width: "18rem" }} className="my-3 cardHome">
-                <Card.Img
-                  className="imgCardActu"
-                  variant="top"
-                  src={`http://localhost:8000/storage/uploads/${article.image}`}
-                />
-                <Card.Body className="bodyCardActu">
-                  <Card.Title className="titleCardArticleHome">
-                    {article.titleArticle}
-                  </Card.Title>
-                  <Button className="btnCardActu" variant="primary">
-                    En lire plus...
-                  </Button>
-                </Card.Body>
-              </Card>
+              <Link to={`/articles/${article.id}`}>
+                <Card style={{ width: "18rem" }} className="my-3 cardHome">
+                  <Card.Img
+                    className="imgCardActu"
+                    variant="top"
+                    src={`http://localhost:8000/storage/uploads/${article.image}`}
+                  />
+                  <Card.Body className="bodyCardActu">
+                    <Card.Title className="titleCardArticleHome">
+                      {article.titleArticle}
+                    </Card.Title>
+                    <Button className="btnCardActu" variant="primary">
+                      En lire plus...
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Link>
             </Col>
           ))}
         </Row>
@@ -84,8 +86,8 @@ const Home = () => {
       {/* ------------------------- SECTION PLACEMAP ------------------------- */}
 
       <section className="parallaxSection">
-     {/* <h1 className="titlePara">Saint-Nazaire</h1>
-      */}
+        {/* <h1 className="titlePara">Saint-Nazaire</h1>
+         */}
       </section>
 
       {/* ------------------------- SECTION PLACEMAP ------------------------- */}

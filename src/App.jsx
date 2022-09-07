@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import ArticleShow from "./pages/ArticleShow";
 
 import Index from "./pages/dashboard/Index";
 
@@ -27,7 +28,7 @@ import Events from "./pages/dashboard/events/Events";
 import AddEvent from "./pages/dashboard/events/AddEvent";
 import EditEvent from "./pages/dashboard/events/EditEvent";
 
-import Footer from "./components/Footer";
+
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="*" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/articles/:articleId" element={<ArticleShow />} />
 
         <Route path="/dashboard/index" element={<Index />} />
 

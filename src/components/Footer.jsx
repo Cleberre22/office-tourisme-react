@@ -18,7 +18,9 @@ const Footer = () => {
                 <div>Bonjour</div>
                 <div>Bonjour</div>
             </div>
+            
         </section>
+
     );
 };
 

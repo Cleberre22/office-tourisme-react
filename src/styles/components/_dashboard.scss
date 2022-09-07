@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     height: 80vh;
     width: 100%;
 
@@ -17,21 +17,59 @@
     .col1 {
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
         width: 30%;
-        background-color: aqua;
+        background-color: #CACACA;
     }
 
     .col2 {
         display: flex;
+        align-items: center;
+        flex-direction: column;
         justify-content: center;
         width: 30%;
-        background-color: rgb(255, 102, 0);
+        background-color: #878787;
     }
 
     .col3 {
         display: flex;
+        align-items: center;
+        flex-direction: column;
         justify-content: center;
         min-width: 30%;
-        background-color: rgb(255, 0, 21);
+        background-color: #CACACA;
+    }
+
+    .cardAdmin {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cardAdminArticle {
+        background-image: url(../../../public/escales.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .titleCardDash {
+        text-align: center;
+        font-weight: 700;
+        font-size: 22px;
+        color: rgba(39, 38, 38, 0.932);
+    }
+
+    .linkDash {
+        color: #878787;
+
+        .iconDash {
+            margin-left: 10px;
+        }
+    }
+
+    .linkDash:hover {
+        color: red;
+        font-size: 18px;
+        overflow: hidden;
     }
 }

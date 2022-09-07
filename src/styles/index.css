@@ -356,18 +356,33 @@ a:-webkit-any-link {
 .dashSection .col1 {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 30%;
   background-color: aqua;
 }
 .dashSection .col2 {
   display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
   width: 30%;
   background-color: rgb(255, 102, 0);
 }
 .dashSection .col3 {
   display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
   min-width: 30%;
   background-color: rgb(255, 0, 21);
+}
+.dashSection .cardAdmin {
+  display: flex;
+  justify-content: center;
+}
+.dashSection .cardAdminArticle {
+  background-image: url(../../../public/escales.jpg);
+  background-position: center;
+  background-size: cover;
 }/*# sourceMappingURL=index.css.map */
