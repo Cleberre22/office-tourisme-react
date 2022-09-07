@@ -5,6 +5,13 @@
     justify-content: center;
     align-items: center;
 
+    .gridShowArticle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
     .imageShowArticle {
         max-width: 800px;
     }
