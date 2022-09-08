@@ -15,7 +15,8 @@ const AddArticle = () => {
   const [titleArticle, setTitleArticle] = useState("");
   const [contentArticle, setContentArticle] = useState("");
   const [image, setImage] = useState("");
-  const [user_id, setUser_id] = useState("1");
+  const [users, setUsers] = useState("");
+  const [user_id, setUser_id] = useState("");
   const [validationError, setValidationError] = useState({});
 
   const changeHandler = (event) => {
@@ -33,6 +34,11 @@ const AddArticle = () => {
     formData.append("user_id", user_id);
     formData.append("image", image);
 
+  //   await axios.get("http://127.0.0.1:8000/users", {
+  //     "headers" : { "Authorization":"Bearer"+localStorage.getItem('access_token') }
+  // }).then((actualData) => { setUsers(actualData.data.data) });
+  // console.log(localStorage);
+
     await axios
       .post(`http://localhost:8000/api/articles`, formData)
       .then(navigate("/dashboard/articles"))
@@ -47,6 +53,22 @@ const AddArticle = () => {
     <div>
       <Logo />
       <Menu />
+
+    
+
+      {/* {users.map((user) => 
+      <div className='App'>
+        <p>
+          {user.id} {user.name} {user.idade}
+        </p>
+        
+      </div>
+      )} */}
+
+
+
+
+
       <div className="container mt-5 addArticle">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">

@@ -30,7 +30,7 @@ const Register = () => {
     formData.append("password_confirmation", password_confirmation);
 
     await axios
-      .post(`http://localhost:8000/api/auth/register`, formData)
+      .post(`http://localhost:8000/api/register`, formData)
       .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {
@@ -116,21 +116,7 @@ const Register = () => {
                       </Col>
                     </Row>
 
-                    <Row>
-                      <Col>
-                        <Form.Group controlId="Password_confirmation">
-                          <Form.Label></Form.Label>
-                          <Form.Control
-                            type="password"
-                            value={password_confirmation}
-                            placeholder="Confirmation mot de passe"
-                            onChange={(event) => {
-                              setPassword_confirmation(event.target.value);
-                            }}
-                          />
-                        </Form.Group>
-                      </Col>
-                    </Row>
+                   
                     
                     <Button
                       variant="primary"
