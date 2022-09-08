@@ -11,7 +11,18 @@ const Filters = () => {
   const [data, setData] = useState([]);
   const [rangeValue, setRangeValue] = useState(1);
   const [selectedRadio, setSelectedRadio] = useState("");
-  const radios = ["Bar", "Restaurant", "Cinéma", "Ecole"];
+  const radios = [
+    "Bar",
+    "Restaurant",
+    "Cinéma",
+    "Ecole",
+    "Club de sport",
+    "Zone portuaire",
+    "Bibliothèque",
+    "Centre de formation",
+    "Salle de concert",
+  ];
+  // const radios = ["Arinfo", "Le VIP"];
 
   // Le useEffect se joue lorsque le composant est monté
   useEffect(() => {
@@ -32,21 +43,18 @@ const Filters = () => {
           onChange={(e) => setRangeValue(e.target.value)}
         />
 
-       
-
         {radios.map((toto) => (
-            <li>
-              <input
-                type="radio"
-                id={toto}
-                name="totoInputRadio"
-                checked={toto === selectedRadio}
-                onChange={(e) => setSelectedRadio(e.target.id)}
-              />
-              <label htmlFor={toto}>{toto}</label>
-            </li>
-          
-          ))}
+          <li>
+            <input
+              type="radio"
+              id={toto}
+              name="totoInputRadio"
+              checked={toto === selectedRadio}
+              onChange={(e) => setSelectedRadio(e.target.id)}
+            />
+            <label htmlFor={toto}>{toto}</label>
+          </li>
+        ))}
       </ul>
 
       {selectedRadio && (
@@ -54,12 +62,12 @@ const Filters = () => {
           Annuler la recherche
         </button>
       )}
-
+      {/* {selectedRadio} */}
       <ul>
         {data
 
           .filter((totoFiltre) =>
-            totoFiltre.totos[0].includes(selectedRadio)
+            totoFiltre.namePlaceType.includes(selectedRadio)
           )
           // .sort((a, b) => b.population - a.population)
           .slice(0, rangeValue)
