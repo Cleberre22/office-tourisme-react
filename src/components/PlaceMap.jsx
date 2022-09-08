@@ -6,7 +6,12 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/leaflet.css";
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -16,20 +21,34 @@ L.Icon.Default.mergeOptions({
 });
 
 const PlaceMap = () => {
+  const [places, setPlaces] = useState([]);
 
-    const [places, setPlaces] = useState([]);
-  
-    useEffect(() => {
-      displayPlaces();
-    
-    }, []); // Sans les crochets ça tourne en boucle
-  
-    const displayPlaces = async () => {
-      await axios.get("http://localhost:8000/api/places").then((res) => {
-        setPlaces(res.data);
-        console.log(res.data);
-      });
-    };
+
+
+
+
+//   const [data, setData] = useState([]);
+//   const { filterMap } = useParams();
+//   console.log(setData);
+//  const displayFilterMap = async () => {
+//     await axios.get("http://localhost:8000/api/places").then((res) => {
+//       setFilterMap(res.data);
+//       console.log(res.data);
+//     });
+
+
+
+
+  useEffect(() => {
+    displayPlaces();
+  }, []); // Sans les crochets ça tourne en boucle
+
+  const displayPlaces = async () => {
+    await axios.get("http://localhost:8000/api/places").then((res) => {
+      setPlaces(res.data);
+      // console.log(res.data);
+    });
+  };
 
   return (
     <div>

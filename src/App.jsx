@@ -4,9 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Contact from "./pages/Contact";
 import ArticleShow from "./pages/ArticleShow";
 
 import Index from "./pages/dashboard/Index";
+
+import Contacts from "./pages/dashboard/contacts/Contacts";
 
 import Articles from "./pages/dashboard/articles/Articles";
 import AddArticle from "./pages/dashboard/articles/AddArticle";
@@ -40,6 +43,8 @@ function App() {
         <Route path="*" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/dashboard/contacts" element={<Contacts />} />
         <Route path="/articles/:articleId" element={<ArticleShow />} />
 
         <Route path="/dashboard/index" element={<Index />} />

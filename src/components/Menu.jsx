@@ -20,6 +20,7 @@ const Menu = () => {
               <div className="nav-left">
                 <Nav.Link href="/home">Accueil</Nav.Link>
                 <Nav.Link href="/dashboard/index">Dashboard</Nav.Link>
+                <Nav.Link href="/contact">Contact</Nav.Link>
                 <NavDropdown title="Articles" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="/dashboard/articles/add">
                     Créer un nouvel article

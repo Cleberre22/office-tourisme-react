@@ -11,8 +11,12 @@
     border: 1px solid #fa130c;
     border-radius: 20px;
     padding: 10px;
-    color:  blue;
+    color:  rgba(39, 38, 38, 0.932);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .inputRange {
+      margin-right: 40px;
+    }
 
     input {
       transform: translateY(1px);
@@ -60,9 +64,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
 
   .listFilterPlace {
+    margin: 20px;
     padding-top:  30px;
     max-width: 200px;
     display: flex;
@@ -70,5 +78,15 @@
     align-items: center;
     color: rgba(39, 38, 38, 0.932);
     font-size: 16px;
+  }
+
+  .cardFilterPlace {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid #fa130c;
+    height: 300px;
+
+    .imgCardFilter {
+      height: 150px;
+  }
   }
 }

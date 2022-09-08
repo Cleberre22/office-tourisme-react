@@ -1,28 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
-
-import { Link } from "react-router-dom";
-import ListePlace from "./ListePlace";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 const Filters = () => {
-  console.log(Filters);
+  // console.log(Filters);
 
   const [data, setData] = useState([]);
-  const [rangeValue, setRangeValue] = useState(1);
+  const [rangeValue, setRangeValue] = useState(4);
   const [selectedRadio, setSelectedRadio] = useState("");
   const radios = [
     "Bar",
-    "Restaurant",
-    "Cinéma",
-    "Ecole",
     "Club de sport",
-    "Zone portuaire",
-    "Bibliothèque",
     "Centre de formation",
     "Salle de concert",
   ];
-  // const radios = ["Arinfo", "Le VIP"];
+  
+  const [filterMap, setFilterMap] = [data, setData];
+// console.log(filterMap);
+
 
   // Le useEffect se joue lorsque le composant est monté
   useEffect(() => {
@@ -30,12 +27,12 @@ const Filters = () => {
       .get("http://localhost:8000/api/places")
       .then((res) => setData(res.data));
   }, []);
-  console.log(data);
 
   return (
     <div className="filters">
       <ul className="radio-container">
         <input
+          className="inputRange"
           type="range"
           min="1"
           max="25"
@@ -73,7 +70,21 @@ const Filters = () => {
           .slice(0, rangeValue)
           .map((place, index) => (
             <Col lg={4} className="listFilterPlace">
-              {place.namePlace}
+              {/* {place.namePlace} */}
+              <Card style={{ width: "18rem" }} className="my-3 cardFilterPlace">
+                <Card.Img
+                  className="imgCardFilter"
+                  variant="top"
+                  src={`http://localhost:8000/storage/uploads/${place.imagePlace}`}
+                />
+                <Card.Body className="">
+                  <Card.Title className="">{place.namePlace}</Card.Title>
+                  <Button className="btnCardActu" variant="primary">
+                    En lire plus...
+                  </Button>
+                </Card.Body>
+              </Card>
+              {/* <CardFilter /> */}
             </Col>
             // <Col lg={4}><ListePlace /></Col>
             //   <Link to={country.name.common.toLowerCase()}>

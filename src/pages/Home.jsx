@@ -15,9 +15,6 @@ import Video from "../components/Video";
 import Filters from "../components/Filters";
 import PlaceMap from "../components/PlaceMap";
 import Footer from "../components/Footer";
-import ListePlace from "../components/ListePlace";
-
-import { Parallax, Background } from "react-parallax";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
@@ -31,13 +28,13 @@ const Home = () => {
   const displayArticles = async () => {
     await axios.get("http://localhost:8000/api/articles").then((res) => {
       setArticles(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     });
   };
   const displayPlaces = async () => {
     await axios.get("http://localhost:8000/api/places").then((res) => {
       setPlaces(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     });
   };
 

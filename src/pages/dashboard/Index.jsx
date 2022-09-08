@@ -115,12 +115,10 @@ const Index = () => {
                 <Card.Title className="titleCardDash">
                   CONTACT
                 </Card.Title>
-                <Link to={`/dashboard/articles/add`} className="linkDash">
-                  Ajouter un nouvel article <BsFillPencilFill className="iconDash"/>
-                </Link>
-                <br />
-                <Link to={`/dashboard/articles/add`} className="linkDash">
-                  Liste des articles <BsCardList className="iconDash"/>
+                
+                
+                <Link to={`/dashboard/contacts`} className="linkDash">
+                  Liste des messages <BsCardList className="iconDash"/>
                 </Link>
               </Card.Body>
             </Card>
